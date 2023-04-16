@@ -1,8 +1,7 @@
 // src/server.ts
 import express, { Request, Response } from 'express';
 import bodyParser from 'body-parser';
-import puppeteer from 'puppeteer-core';
-import chromeLambda from 'chrome-aws-lambda';
+import puppeteer from 'puppeteer'; // Change this line
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -19,8 +18,7 @@ app.post('/generate', async (req: Request, res: Response) => {
     try {
         const browser = await puppeteer.launch({
             headless: true,
-            executablePath: await chromeLambda.executablePath,
-            args: chromeLambda.args,
+            args: ['--no-sandbox', '--disable-setuid-sandbox'],
         });
         const page = await browser.newPage();
         await page.goto(url, { waitUntil: 'networkidle2' });

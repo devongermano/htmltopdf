@@ -1,0 +1,10 @@
+# render.yaml
+services:
+  - type: web
+    name: pdf-generator
+    env: node
+    buildCommand: "npm ci && npm install -D typescript && npx tsc"
+    startCommand: "node dist/server.js"
+    envVars:
+      - key: PUPPETEER_SKIP_CHROMIUM_DOWNLOAD
+        value: "true"
