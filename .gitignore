@@ -1,0 +1,24 @@
+# .gitignore
+
+# Node.js dependencies
+node_modules/
+
+# TypeScript build output
+dist/
+
+# Environment variables
+.env
+
+# Editor files
+.vscode/
+*.swp
+*.swo
+*.swn
+*.log
+
+# WebStorm project files
+.idea/
+
+# Operating system files
+.DS_Store
+Thumbs.db
